@@ -5,13 +5,10 @@ $(document).ready(function() {
       var items = [];
       $.each(data, function(key, val) {
         console.log(key);
-        items.push("<tr>\
-                      <th scope='col'>#</th>\
-                      <th scope='col'>First</th>\
-                      <th scope='col'>Last</th>\
-                      <th scope='col'>Handle</th>\
-                    </tr>\
-                    <tr><td>" + val.name + "</td>\
+        items.push("<tr><td>" + val.id + "</td>\
+                        <td>" + val.name + "</td>\
+                        <td>" + val.mail + "</td>\
+                        <td>" + val.phone + "</td>\
                         <td><button class=\"excluir\" id=\""+ val.id + "\">Excluir</button></td>\
                         <td><button  class=\"alterar\" name=\""+val.name+"\"id=\""+ val.id + "\">Alterar</button></td>\
                     </tr>");
@@ -20,7 +17,14 @@ $(document).ready(function() {
       $("<table/>", {
         class: "table",
         border: "1",
-        html: items
+        html: "<tr>\
+                <th scope='col'>ID</th>\
+                <th scope='col'>Nome</th>\
+                <th scope='col'>Email</th>\
+                <th scope='col'>Phone</th>\
+                <th scope='col'>Excluir</th>\
+                <th scope='col'>Alterar</th>\
+              </tr>" + items
       }).appendTo("#resultado");
 
       //Excluir
