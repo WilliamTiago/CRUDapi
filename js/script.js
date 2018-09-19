@@ -5,11 +5,20 @@ $(document).ready(function() {
       var items = [];
       $.each(data, function(key, val) {
         console.log(key);
-        items.push("<tr><td>" + val.nome + "</td><td><button class=\"excluir\" id=\""+ val.id + "\">Excluir</button></td><td><button  class=\"alterar\" name=\""+val.nome+"\"id=\""+ val.id + "\">Alterar</button></td></tr>");
+        items.push("<tr>\
+                      <th scope='col'>#</th>\
+                      <th scope='col'>First</th>\
+                      <th scope='col'>Last</th>\
+                      <th scope='col'>Handle</th>\
+                    </tr>\
+                    <tr><td>" + val.name + "</td>\
+                        <td><button class=\"excluir\" id=\""+ val.id + "\">Excluir</button></td>\
+                        <td><button  class=\"alterar\" name=\""+val.name+"\"id=\""+ val.id + "\">Alterar</button></td>\
+                    </tr>");
       });
 
       $("<table/>", {
-        class: "vermelho",
+        class: "table",
         border: "1",
         html: items
       }).appendTo("#resultado");
